@@ -1,14 +1,9 @@
-import random
-from Solution import Solution
-from MergeSort1 import MergeSort
-
+from MergeSort1 import MergeSort1
 
 if __name__ == '__main__':
-    num1 = [2,2,7,10,20]
-    num2 = [1,2,2,3,5,7]
-    s = Solution()
+    m = MergeSort1()
+    A = [5, 8, 4, 6, 1, 9]
 
-
-
+    print(m.sort(A))
 
     print("This is the end, hotld your breath and count to ten")
