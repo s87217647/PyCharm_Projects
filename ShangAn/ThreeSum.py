@@ -61,3 +61,35 @@ class ThreeSum:
                 return True
 
         return False
+
+    # 试图自己默写
+    # How to deal with the duplicates? 显然，在一个相同的数字被已经被放入的时候滑动到下一个
+    def threeSum3(self, nums: List[int]) -> List[List[int]]:
+        # think about clarification before looking at test cases
+        if not nums or len(nums) < 3:
+            return []
+
+        nums.sort()
+        ans = []
+        for i in range(len(nums)):
+            if nums[i] == nums[i - 1] and i > 0:
+                continue
+
+            lo, hi = i + 1, len(nums) - 1
+            target = 0 - nums[i]
+            while lo < hi:
+                if nums[lo] + nums[hi] < target:
+                    lo += 1
+                elif nums[lo] + nums[hi] > target:
+                    hi -= 1
+                else:
+                    ans.append([nums[i], nums[lo], nums[hi]])
+                    lo += 1
+                    hi -= 1
+                    while lo < hi and nums[lo] == nums[lo - 1]: # 因为你上面已经向右移动过了，应该检查这一个和上一个是不是一样的
+                        lo += 1
+                    while lo < hi and nums[hi] == nums[hi + 1]:
+                        hi -= 1
+                    #break #Can't have this, after it break, it will become the bigger for loop
+
+        return ans

@@ -28,6 +28,8 @@
 from typing import List
 
 # Sort array, 2 pointers
+# After sorting, the index shuffled.
+# If not sorted, hashtable
 class TwoSum:
     def two_sum(self, nums: List[int], target):
         nums.sort()
@@ -41,6 +43,20 @@ class TwoSum:
                 return [left, right]
 
         return None
+
+    # hashtable method
+    def two_sum2(self, nums: List[int], target):
+        map ={}
+        for i in range(len(nums)):
+            if target - nums[i] in map:
+                return [map[target - nums[i]], i]
+            else:
+                map[nums[i]] = i
+
+        return [-1, -1]
+
+
+
 
     # Fuck your motherfuckering brute force
 

@@ -7,10 +7,12 @@ import random
 from ListNode import ListNode
 from AddTwoNumbers import AddTwoNumbers
 from TwoSum import TwoSum
-if __name__ == '__main__':
-    ts = TwoSum()
-    print(ts.two_sum([3,2,4], 6))
+from AddBinary import AddBinary
 
+if __name__ == '__main__':
+    ab = AddBinary()
+
+    print(ab.addBinary("1111","1111"))
 
 
 
