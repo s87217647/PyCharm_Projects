@@ -29,14 +29,18 @@ from typing import List
 
 # Sort array, 2 pointers
 class TwoSum:
-    def two_sum(self, nums: List[int], target) -> bool:
+    def two_sum(self, nums: List[int], target):
+        nums.sort()
         left, right = 0, len(nums) - 1
         while left < right:
             if nums[left] + nums[right] < target:
                 left += 1
             elif nums[left] + nums[right] > target:
-                right -= 0
+                right -= 1
             else:
-                return True
-        return False
+                return [left, right]
+
+        return None
+
+    # Fuck your motherfuckering brute force
 
