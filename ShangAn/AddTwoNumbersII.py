@@ -25,13 +25,26 @@ class AddTwoNumbersII:
     # I want to cheat this fucker: the idea is simple, recursive get both numbers
     # add two fuckers up. Boom shakalaka
     def addTwoNumbersII2(self, l1: ListNode, l2:ListNode):
-        return
+        int1 = self.findInt(l1)
+        int2 = self.findInt(l2)
+        intStr = str(int1 + int2)
+        print(intStr)
 
-    def findVal(self, node: ListNode):
-        if not ListNode.next:
-            return node.val
+        head = ListNode()
+        cur = head
+        for char in intStr:
+            cur.next = ListNode(int(char))
+            cur = cur.next
 
-        return node.val *
+        return head.next
 
+
+    def findInt(self, head: ListNode) -> int:
+        intStr = ""
+        while head:
+            intStr += str(head.val)
+            head = head.next
+
+        return int(intStr)
 
 
