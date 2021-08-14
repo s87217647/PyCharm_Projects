@@ -12,7 +12,9 @@ from AddTwoNumbersII import AddTwoNumbersII
 from AddToArrayForm import AddToArrayForm
 from SubArrayProductLessThanK import SubarrayProductLessThanK
 if __name__ == '__main__':
-    s = SubarrayProductLessThanK()
-    print(s.SubarrayProductLessThanK([10,2,5,6], 100))
+    nums = [1,2,3,4,5,6,7,8,9]
+
+    print( sum (nums[2:5]))
+
 
     print("This is the end, hold your breath and count to ten")
