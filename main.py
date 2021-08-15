@@ -11,11 +11,10 @@ from AddBinary import AddBinary
 from AddTwoNumbersII import AddTwoNumbersII
 from AddToArrayForm import AddToArrayForm
 from SubArrayProductLessThanK import SubarrayProductLessThanK
-
-from collections import Counter
 if __name__ == '__main__':
-    from string import ascii_lowercase
-    count = {ch: 0 for ch in ascii_lowercase}
-    print((count))
+    temp = "aadsfasdghejdtyj"
+    print(sorted(temp))
+
+
 
     print("This is the end, hold your breath and count to ten")

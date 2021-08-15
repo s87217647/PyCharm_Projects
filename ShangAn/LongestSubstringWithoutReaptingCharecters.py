@@ -34,4 +34,12 @@ class LongestSubstringWithoutRepeatingCharacters:
 
         return ans
 
+# 课上，再做一遍
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        left, right = 0, 0
+        while left < len(s):
+            while right < len(s):
+                if s[right] in s[left: right]:
+                    right += 1
+
 

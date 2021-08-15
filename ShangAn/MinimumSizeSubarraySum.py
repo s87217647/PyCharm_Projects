@@ -1,4 +1,6 @@
 class MinimumSizeSubarraySum:
+    # Nums 出现负数会影响结果
+    # 记得 Clarify
     def minSubArrayLen(self, target, nums):
         """
         :type target: int

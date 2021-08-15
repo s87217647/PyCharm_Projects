@@ -40,6 +40,21 @@ class QuickSort:
         return j
 
 
+    #老夫子讲义里的 partition
+    def partition2(self, nums, lo, hi):
+        pivot = nums[lo]
+        while(lo < hi):
+            while lo < hi and nums[hi] >= pivot:
+                nums[lo] = nums[hi]
+                hi -= 1
+            while lo < hi and nums[lo] <= pivot:
+                nums[lo] = nums[hi]
+                lo += 1
+
+        nums[lo] = pivot
+        return lo
+
+
 
 
     def swap(self, A, i, j):
