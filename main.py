@@ -11,10 +11,18 @@ from AddBinary import AddBinary
 from AddTwoNumbersII import AddTwoNumbersII
 from AddToArrayForm import AddToArrayForm
 from SubArrayProductLessThanK import SubarrayProductLessThanK
+from MovingAveragefromDataStream import MovingAverageFromDataStream
+
 if __name__ == '__main__':
-    temp = "aadsfasdghejdtyj"
-    print(sorted(temp))
+    # anagram prob
+    # str1 = "cat"
+    # str2 = "tac"
+    # count1 = dict(str1)
+    # count2 = dict(str2)
 
-
+    #ai ai ai
+    nums = [57,6,7,8,54,48,21,30,1]
+    nums.sort(reverse=True)
+    print(nums)
 
     print("This is the end, hold your breath and count to ten")
