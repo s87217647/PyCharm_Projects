@@ -42,7 +42,7 @@ class QuickSort:
 
     #老夫子讲义里的 partition
     def partition2(self, nums, lo, hi):
-        pivot = nums[lo]
+        pivot = nums[lo] # pivot 为最左边的
         while(lo < hi):
             while lo < hi and nums[hi] >= pivot:
                 nums[lo] = nums[hi]
