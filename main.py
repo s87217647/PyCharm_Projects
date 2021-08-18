@@ -11,9 +11,11 @@ from AddBinary import AddBinary
 from AddTwoNumbersII import AddTwoNumbersII
 from AddToArrayForm import AddToArrayForm
 from SubArrayProductLessThanK import SubarrayProductLessThanK
-if __name__ == '__main__':
-    nums = [1,2,3,4,5,6,7,8,9]
 
-    a= b= 10
-    print(a, b)
+from collections import Counter
+if __name__ == '__main__':
+    from string import ascii_lowercase
+    count = {ch: 0 for ch in ascii_lowercase}
+    print((count))
+
     print("This is the end, hold your breath and count to ten")

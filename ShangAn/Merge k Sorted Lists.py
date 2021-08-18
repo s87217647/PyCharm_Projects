@@ -20,5 +20,4 @@ class MergekSortedLists:
             node = node.next
             if node:
                 heappush(q, (node.val, id(node), node))
-            # Why the fuck it merged, I don't understand!
         return head.next
