@@ -1,21 +1,18 @@
+from typing import List
 class MinimumSizeSubarraySum:
     # Nums 出现负数会影响结果
     # 记得 Clarify
-    def minSubArrayLen(self, target, nums):
-        """
-        :type target: int
-        :type nums: List[int]
-        :rtype: int
-        """
-
-        left, right = 0,0
-        ans = len(nums) + 1
-
+    # 这两个Loop 作为模板
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
+        ans, sum = len(nums) + 1, 0
+        left = right = 0
         while right < len(nums):
-            if sum (nums[left : right]) >= target:
-                ans = min(ans, right - left)
+            sum += nums[right]
+            while sum >= s:
+                ans = min(ans, right - left + 1)
+                sum -= nums[left]
                 left += 1
 
             right += 1
 
-        return 0 if ans > len(nums) else ans
+        return ans if ans != len(nums) + 1 else 0
