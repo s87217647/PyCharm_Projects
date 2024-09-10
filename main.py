@@ -1,16 +1,29 @@
-from QuickSort import QuickSort
-from random import randint
-from collections import Counter as counter
-from collections import deque
+def reverse(n):
+    rev = 0
+    while (n > 0):
+        a = n % 10
+        rev = rev * 10 + a
+        n = n // 10
+
+    return rev
 
 if __name__ == '__main__':
-    # for i in range(10):
-    #     print(i)
 
-    list = [0,1,2,3,4,None]
-
-    while list:
-        print(list.pop())
+    # Random four numbers within 1-9
+    # from max to min, minus from min to max
+    # Repeat and rinse, within 7 iteration, the pass word will be shown.
+    num = 1234
 
 
-    print("This is the end, hold your breath and count to ten")
+
+    for i in range(7):
+        if (reverse(num) > num):
+            num = reverse(num) - num
+        else:
+            num = num - reverse(num)
+        print(num)
+
+
+    print("Kristen is my fiancee")
+
+

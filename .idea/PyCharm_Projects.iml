@@ -5,9 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/CS10" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LeetCode" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ShangAn" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CS146" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tree and BST" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Win Interpreter" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (Virtualenve Environment)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
