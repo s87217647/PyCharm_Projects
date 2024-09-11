@@ -9,14 +9,13 @@ class Deck:
         for x in range(num):
             self.stack.extend(self.oneDeck())
 
-        self.shuffle()
+        random.shuffle(self.stack)
         return self.stack
 
     def pop(self):
         return self.stack.pop()
 
-    def shuffle(self):
-        random.shuffle(self.stack)
+
 
     def clear(self):
         return
