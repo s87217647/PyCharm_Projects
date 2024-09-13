@@ -6,13 +6,15 @@ from Player import Player
 
 class Game:
     def __init__(self, shoeSize=4):
-        self.dealer = Player("John the Faithful Dealer", 10000, dealer=True)
+        self.dealer = Player("Dealer", 10000, dealer=True)
         self.players = []
         self.shoe = Deck(shoeSize)
         self.usedCards = Deck(0)
 
     def run(self):
-        while True:
+        while self.players:
+            print("\r")
+
             # the initial two cards
             for i in range(2):
                 for p in self.players:
@@ -21,38 +23,82 @@ class Game:
                 self.dealer.receiveCard(self.shoe.pop())
 
             # individual deal or stand
-
             for p in self.players:
                 while not p.bust():
-                    match p.action():
-                        case "hit":
-                            p.receiveCard(self.shoe.pop(0))
-                        case "stand":
-                            break
-                        # case split etc
-                        case _:
-                            break
+                    if p.action() == "hit":
+                        p.receiveCard(self.shoe.pop())
+                    else:
+                        break
 
                 if p.bust():
+                    print(p.name + " busted")
                     p.fund -= p.bet
-                    self.players[0].fund += p.bet
+                    self.dealer.fund += p.bet
                     # recycle cards
 
             while self.dealer.action() == "hit":
-                self.players[0].receiveCard(self.deck.pop())
+                self.dealer.receiveCard(self.shoe.pop())
+
+
+            # report section
+            self.dealer.report()
+            for p in self.players:
+                p.report()
+
 
             if self.dealer.bust():
                 for p in self.players:
                     if not p.bust():
+                        print("Dealer bust")
                         self.dealer.fund -= p.bet
                         p.fund += p.bet
             else:
                 for p in self.players:
-                    if max(p.handValue()) > max(self.dealer.handValue()):
-                        self.dealer.fund - p.bet
-                        p.fund += p.bet
+                    playerHand = max(p.handValue())
+                    dealerHand = max(self.dealer.handValue())
 
-            return
+                    if p.bust():
+                        continue
+
+                    if playerHand == dealerHand:
+                        print("tie")
+                        continue
+                    elif playerHand > dealerHand:
+                        print(p.name + " won")
+                        self.dealer.fund -= p.bet
+                        p.fund += p.bet
+                    else:
+                        print(p.name + " lost")
+                        self.dealer.fund += p.bet
+                        p.fund -= p.bet
+
+
+            for p in self.players:
+                if p.fund <= 0:
+                    self.removePlayer(p)
+
+
+
+            # recycle the card
+            # keeping a used card because
+            # drawn card are available information to human and model
+            # maybe more complex feature will be added, like a cut card
+
+            for p in self.players:
+                while p.hand:
+                    self.usedCards.push(p.hand.pop())
+
+            while self.dealer.hand:
+                self.usedCards.push(self.dealer.hand.pop())
+
+            if len(self.shoe.stack) < 20:
+                self.shoe.stack.extend(self.usedCards.stack)
+                self.usedCards.clear()
+                random.shuffle(self.shoe.stack)
+
+
+
+        return
 
 
 

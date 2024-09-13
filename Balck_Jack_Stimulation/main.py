@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # game.addPlayer(Player("Rupert", 1000))
     # game.addPlayer(Player("Carlito", 1000))
 
-    game.run
+    game.run()
 
 
 

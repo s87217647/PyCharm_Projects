@@ -15,6 +15,8 @@ class Deck:
     def pop(self):
         return self.stack.pop()
 
+    def push(self, card):
+        self.stack.insert(-1, card)
 
 
     def clear(self):
